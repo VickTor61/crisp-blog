@@ -11,3 +11,4 @@ tmp/cache/bootsnap/compile-cache-iseq/
 .vscode/**/*
 /app/assets/builds/*
 !/app/assets/builds/.keep
+.env
