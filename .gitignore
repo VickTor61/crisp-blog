@@ -13,3 +13,4 @@ tmp/cache/bootsnap/compile-cache-iseq/
 !/app/assets/builds/.keep
 .env
 public/assets/
+log/
