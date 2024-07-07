@@ -2,9 +2,12 @@
 !/tmp/.keep
 
 # Ignore Bootsnap cache files
+/tmp/cache
 tmp/cache/bootsnap/compile-cache-iseq/**/*
 tmp/cache/bootsnap/load-path-cache
 log/development.log
 tmp/cache/bootsnap/compile-cache-iseq/
 
 .vscode/**/*
+/app/assets/builds/*
+!/app/assets/builds/.keep
