@@ -3,12 +3,10 @@ class PostsController < ApplicationController
   before_action :set_post, except: [:index, :new, :create]
 
   def index
-    @posts = Post.all
+    @posts = user_signed_in? ? Post.sorted : Post.published.sorted
   end
 
   def show
-  rescue ActiveRecord::RecordNotFound
-    redirect_to root_path
   end
 
   def new
@@ -43,10 +41,12 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content)
+    params.require(:post).permit(:title, :content, :published_at)
   end
 
   def set_post
-    @post = Post.find(params[:id])
+    @post = user_signed_in? ? Post.find(params[:id]) : Post.published.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to root_path
   end
 end
