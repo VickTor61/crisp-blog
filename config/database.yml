@@ -79,6 +79,5 @@ test:
 #
 production:
   <<: *default
-  database: fancy_blog_production
-  username: fancy_blog
+  url: <%= ENV["DATABASE_URL"] %>
   password: <%= ENV["FANCY_BLOG_DATABASE_PASSWORD"] %>
