@@ -1,6 +1,12 @@
+<h1> Blogs </h1>
 <% @posts.each do |post| %>
-    <div>
+  <div>
     <h1><%= link_to post.title, post %> </h1>
+    <% if post.draft? %>
+      <div class="p-2 rounded bg-gray-100 text-gray-900">Draft</div>
+    <%elsif post.scheduled? %>
+      <div class="p-2 rounded bg-blue-200 text-blue-900">Scheduled</div>
+    <% end %>
     <p> <%= post.content %> </p>
-    </div>
+  </div>
 <% end %>
